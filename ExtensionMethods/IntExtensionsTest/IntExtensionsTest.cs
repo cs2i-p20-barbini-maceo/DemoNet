@@ -41,6 +41,27 @@ namespace IntExtensionsTest
 
             Assert.AreEqual("##India", "India".FillLeft(7, '#'));
         }
+        [TestMethod]
+        public void TestFillRight()
+        {
+            Assert.AreEqual("Indi", "India".FillRight(4));
+
+            Assert.AreEqual("India  ", "India".FillRight(7));
+            Assert.AreEqual("India##", "India".FillRight(7, '#'));
+        }
+        [TestMethod]
+        public void TestCleanPath()
+        {
+            Assert.AreEqual("Lun.d+i", @"L|u\n.d/+i".CleanPath());
+        }
+        [TestMethod]
+        public void TestAddSuffix()
+        {
+            Assert.AreEqual("IndiaTest", "India".AddSuffix("Test"));
+            Assert.AreEqual("IndiaTest", "IndiaTest".AddSuffix("Test"));
+            Assert.AreEqual("indiaTest", "indiatest".AddSuffix("Test"));
+        }
+
 
     }
 }
